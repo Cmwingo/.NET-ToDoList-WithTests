@@ -6,13 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ToDoList.Models
 {
-    public class ToDoListContext : DbContext
+    public class TestDbContext: ToDoListContext
     {
-        public virtual DbSet<Item> Items { get; set; }
-
+        public override DbSet<Item> Items { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ToDoList;integrated security=True");
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ToDoListTest;integrated security=True");
         }
     }
 }
